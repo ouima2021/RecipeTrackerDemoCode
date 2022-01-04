@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<ul>
+    <li th:each="recipe : ${recipes}">
+        <p th:text="${recipe.value}"></p>
+    </li>
+    <li th:each="chicken : ${chickenAgain}">
+        <p th:text="${chicken}"></p>
+    </li>
+    <li th:each="entries : ${entry}">
+        <p th:text="${entries}"></p>
+    </li>
+
+        </ul>
+
+
+</body>
+</html>

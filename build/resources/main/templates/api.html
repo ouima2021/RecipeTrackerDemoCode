@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>API Page</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<form th:action="@{/api}" method = "post">
+    <input type="text" placeholder="Search by ingredient..." name="searchString" id="searchString">
+    <button type="submit" for="searchString">Submit</button>
+</form>
+
+
+    <th:block th:each="result: ${results}">
+        <img  alt="" width="150"
+              th:src="@{${result.recipe.image}}"/>
+        <p th:text="${result.recipe.label}" ></p>
+            <div th:each="i, iStat : ${result.recipe.ingredientLines}">
+                <ul>
+           <li th:text="${result.recipe.ingredientLines[iStat.index]}"></li>
+               </ul>
+            </div>
+    </th:block>
+
+   </body>
+   </html>
